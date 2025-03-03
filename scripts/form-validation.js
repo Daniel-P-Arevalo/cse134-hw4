@@ -16,6 +16,7 @@ function checkName() {
 
     if (!name.checkValidity()) {
         let illegalChars = regEx.exec(name.value);
+        name.value = name.value.replace(regEx, '');
         if (illegalChars != null) {
             name.setCustomValidity('Illegal Character: ' + illegalChars[0]);
         } else if (name.value == '') {
@@ -57,6 +58,7 @@ function checkComments() {
     let comments = document.getElementById('comments');
 
     let illegalChars = regEx.exec(comments.value);
+    comments.value = comments.value.replace(regEx, '');
     if (illegalChars != null) {
         comments.setCustomValidity('Illegal Character: ' + illegalChars[0]);
 
